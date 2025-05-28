@@ -12,7 +12,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route
           path="/dashboard"
-          element={isAuthenticated() ? <Dashboard /> : <Navigate to="/login" />}
+          element={<Dashboard />}
         />
         <Route path="*" element={<Navigate to="/login" />} />
       </Routes>
