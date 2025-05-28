@@ -48,15 +48,15 @@ frontend/
 │   │   ├── RegisterForm.jsx
 │   │   ├── ProtectedTable.jsx
 │   │   └── Navbar.jsx
+│   ├── context/
+│   │   └── AuthContext.js
 │   ├── pages/
 │   │   ├── Login.jsx
 │   │   ├── Register.jsx
 │   │   └── Dashboard.jsx
-│   ├── context/
-│   │   └── AuthContext.js
 │   ├── App.jsx
 │   ├── main.jsx
-│   ├── index.css
+│   └── index.css
 ├── package.json
 ├── vite.config.js
 └── tailwind.config.js
@@ -74,6 +74,7 @@ backend/
 ├── server.js
 ├── package.json
 └── nodemon.json
+
 
 ## Installation
 
