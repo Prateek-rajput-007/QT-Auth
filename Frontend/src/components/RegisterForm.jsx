@@ -13,7 +13,7 @@ const RegisterForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/register', {
+      const response = await axios.post('https://qt-backend-delta.vercel.app/api/auth/register', {
         name,
         dob,
         email,
