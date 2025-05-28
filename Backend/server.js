@@ -7,8 +7,13 @@ const authRoutes = require('./routes/auth');
 dotenv.config();
 const app = express();
 
-app.use(cors());
-app.use(express.json());
+app.use(
+  cors({
+    origin: "https://qt-auth.vercel.app", // Directly using the client URL
+    methods: ["GET", "POST", "DELETE", "PUT"],
+    credentials: true,
+  })
+);app.use(express.json());
 
 // Connect to MongoDB
 connectDB();
