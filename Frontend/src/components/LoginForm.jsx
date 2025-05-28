@@ -16,7 +16,7 @@ const LoginForm = () => {
     setLoading(true);
     setError('');
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/login', {
+      const response = await axios.post('https://qt-backend-delta.vercel.app/api/auth/login', {
         email,
         password,
       });
