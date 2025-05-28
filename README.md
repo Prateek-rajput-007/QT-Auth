@@ -38,21 +38,42 @@ A full-stack authentication system featuring user registration, login, and a pro
 ## Project Structure
 
 frontend/
+├── public/
+│   └── vite.svg
 ├── src/
-│   ├── components/ (LoginForm, RegisterForm, Navbar, ProtectedTable)
-│   ├── context/ (AuthContext.js)
-│   ├── pages/ (Login.jsx, Register.jsx, Dashboard.jsx)
-│   ├── App.jsx, main.jsx
-│   └── index.css
+│   ├── assets/
+│   │   └── react.svg
+│   ├── components/
+│   │   ├── LoginForm.jsx
+│   │   ├── RegisterForm.jsx
+│   │   ├── ProtectedTable.jsx
+│   │   └── Navbar.jsx
+│   ├── pages/
+│   │   ├── Login.jsx
+│   │   ├── Register.jsx
+│   │   └── Dashboard.jsx
+│   ├── context/
+│   │   └── AuthContext.js
+│   ├── App.jsx
+│   ├── main.jsx
+│   ├── index.css
+├── package.json
+├── vite.config.js
+└── tailwind.config.js
 
 backend/
-├── config/ (db.js)
-├── models/ (User.js)
-├── routes/ (auth.js)
-├── middleware/ (authMiddleware.js)
+├── config/
+│   └── db.js
+├── models/
+│   └── User.js
+├── routes/
+│   └── auth.js
+├── middleware/
+│   └── authMiddleware.js
 ├── .env
 ├── server.js
 ├── package.json
+└── nodemon.json
 
 ## Installation
 
