@@ -1,6 +1,3 @@
-Here's the plain text version of your GitHub `README.md`:
-
----
 
 # Login and Registration System
 
