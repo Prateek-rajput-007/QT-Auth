@@ -1,13 +1,15 @@
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const user = JSON.parse(localStorage.getItem('user')) || { name: 'User', email: 'N/A' };
+  const { user, logout } = useAuth();
 
   const handleLogout = () => {
-    localStorage.removeItem('user');
-    localStorage.removeItem('token');
-    navigate('/login');
+    logout();
+    setTimeout(() => {
+      navigate('/login');
+    }, 200);
   };
 
   return (
