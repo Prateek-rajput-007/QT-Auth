@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 
 const RegisterForm = () => {
   const [name, setName] = useState('');
@@ -9,18 +10,18 @@ const RegisterForm = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://qt-backend-delta.vercel.app/api/auth/register', {
+      const response = await axios.post('http://localhost:5000/api/auth/register', {
         name,
         dob,
         email,
         password,
       });
-      localStorage.setItem('user', JSON.stringify(response.data.user));
-      localStorage.setItem('token', response.data.token);
+      login(response.data.user, response.data.token);
       navigate('/dashboard');
     } catch (err) {
       const msg = err.response?.data?.message || 'Registration failed';
