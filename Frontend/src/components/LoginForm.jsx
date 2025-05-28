@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
@@ -8,20 +9,21 @@ const LoginForm = () => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     setError('');
     try {
-      const response = await axios.post('https://qt-backend-delta.vercel.app/api/auth/login', {
+      const response = await axios.post('http://localhost:5000/api/auth/login', {
         email,
         password,
       });
       if (response.data && response.data.user && response.data.token) {
-        localStorage.setItem('user', JSON.stringify(response.data.user));
-        localStorage.setItem('token', response.data.token);
-        navigate('/dashboard');
+        login(response.data.user, response.data.token);
+        setLoading(false);
+        navigate('/dashboard', { replace: true });
       } else {
         setError('Invalid response from server');
         setLoading(false);
@@ -108,4 +110,3 @@ const LoginForm = () => {
 };
 
 export default LoginForm;
-
