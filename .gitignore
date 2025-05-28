@@ -1,0 +1,7 @@
+./Backend/node_modules
+./Frontend/node_modules
+# Local env files
+node_modules
+./Frontend/dist
+./Frontend/dist-ssr
+./Frontend/*.local
